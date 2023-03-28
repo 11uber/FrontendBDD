@@ -1,24 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+//Routers
+import { Route, Routes } from "react-router-dom"
+import React, { Fragment, useState, useEffect } from 'react';
+
+//Componentes
+//import React, { Fragment, useState, useEffect } from 'react';
+import Navbar from "./components/navbar";
+
+//Estilos
+import "./styles/navbar.css"
+
+//Paginas
+import Pedidos from './components/Pages/Pedidos';
+import InicioSesion from './components/Pages/InicioSesion';
+import EditarUsuario from './components/Pages/EditarUsuario';
+import Home from './components/Pages/Home';
+//import NuevoUsuario from "./components/Formularios/NuevoUsuario";
+
 
 function App() {
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <>
+    <Navbar brand='Tienda-app'></Navbar>
+    <div className="container">
+      <Routes>
+        <Route path="/" element={ <Home/> }></Route>
+        <Route path="/pedidos" element={ <Pedidos/> }></Route>
+        <Route path="/usuario" element={ <EditarUsuario/> }></Route>
+        <Route path="/login" element={ <InicioSesion/> }></Route>
+      </Routes>
     </div>
+    </>
   );
 }
 
